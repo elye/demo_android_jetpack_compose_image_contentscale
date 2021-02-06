@@ -1,0 +1,2 @@
+rootProject.name = "JetpactComposeSimpleImage"
+include ':app'
