@@ -1,20 +1,18 @@
 package com.example.jetpactcomposesimpleimage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.painter.ImagePainter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.vectorResource
 
-class ComposeActivity : AppCompatActivity() {
+class ContentScaleActivity : AppCompatActivity() {
     companion object {
         const val IMAGE_KEY = "image"
         const val ALIGNMENT_KEY = "alignment"
@@ -32,8 +30,8 @@ class ComposeActivity : AppCompatActivity() {
 
     @Composable
     fun LoadImage(image: ImagesTypeEnum, alignment: AligmentEnum, scale: ContentScaleEnum) {
-        val imagePicture = imageResource(image.imageId)
-
+        val imageVector = rememberVectorPainter(vectorResource(R.drawable.ic_launcher_background))
+        val imagePicture = ImagePainter(imageResource(image.imageId))
         Image(imagePicture,
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),

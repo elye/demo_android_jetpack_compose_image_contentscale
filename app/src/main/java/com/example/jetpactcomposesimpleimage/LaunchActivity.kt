@@ -2,8 +2,6 @@ package com.example.jetpactcomposesimpleimage
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
@@ -21,9 +19,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetpactcomposesimpleimage.ComposeActivity.Companion.ALIGNMENT_KEY
-import com.example.jetpactcomposesimpleimage.ComposeActivity.Companion.IMAGE_KEY
-import com.example.jetpactcomposesimpleimage.ComposeActivity.Companion.SCALE_KEY
+import com.example.jetpactcomposesimpleimage.ContentScaleActivity.Companion.ALIGNMENT_KEY
+import com.example.jetpactcomposesimpleimage.ContentScaleActivity.Companion.IMAGE_KEY
+import com.example.jetpactcomposesimpleimage.ContentScaleActivity.Companion.SCALE_KEY
 
 class LaunchActivity : AppCompatActivity() {
 
@@ -75,7 +73,7 @@ class LaunchActivity : AppCompatActivity() {
 
                 Button(
                     onClick = { startActivity(
-                        Intent(this@LaunchActivity, ComposeActivity::class.java).apply {
+                        Intent(this@LaunchActivity, ContentScaleActivity::class.java).apply {
                             putExtra(IMAGE_KEY, selectedImage.value)
                             putExtra(ALIGNMENT_KEY, selectedAlignment.value)
                             putExtra(SCALE_KEY, selectedScale.value)
@@ -84,6 +82,15 @@ class LaunchActivity : AppCompatActivity() {
                     modifier = Modifier.align(Alignment.CenterHorizontally).padding(4.dp)
                 ) {
                     Text("View Image")
+                }
+
+                Button(
+                    onClick = { startActivity(
+                        Intent(this@LaunchActivity, AccompanistActivity::class.java)
+                    )},
+                    modifier = Modifier.align(Alignment.CenterHorizontally).padding(4.dp)
+                ) {
+                    Text("Accompanist")
                 }
             }
         }
